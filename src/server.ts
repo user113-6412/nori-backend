@@ -6,7 +6,9 @@ import blogRoutes from "./routes/blogRoutes";
 import intakeRoutes from "./routes/intakeRoutes";
 import prisma from './prismaClient';
 const app = express();
-const PORT = process.env.PORT || 5510;
+const port = process.env.PORT 
+            ? parseInt(process.env.PORT) 
+            : 10000;
 
 // Test database connection
 async function testConnection() {
@@ -36,9 +38,9 @@ app.use('/api/blog', blogRoutes);
 async function startServer() {
   await testConnection();
   
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-    console.log(`Test the server by visiting: http://localhost:${PORT}`);
+  app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+  
   });
 }
 
