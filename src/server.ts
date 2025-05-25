@@ -6,9 +6,9 @@ import blogRoutes from "./routes/blogRoutes";
 import intakeRoutes from "./routes/intakeRoutes";
 import prisma from './prismaClient';
 const app = express();
-const port = process.env.PORT 
-            ? parseInt(process.env.PORT) 
-            : 10000;
+const port = process.env.PORT && !isNaN(Number(process.env.PORT))
+    ? parseInt(process.env.PORT)
+    : 10000;
 
 // Test database connection
 async function testConnection() {
