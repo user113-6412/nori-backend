@@ -23,7 +23,7 @@ async function testConnection() {
 
 // Middleware
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: ['http://localhost:3000', 'https://www.puretidenori.co.uk', 'https://puretidenori.co.uk'],
     credentials: true
 }));
 app.use(express.json());
