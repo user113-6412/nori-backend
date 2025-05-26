@@ -20,7 +20,7 @@ interface LoginRequest extends Request {
 }
 
 function createJWT(id: string) {
-    return jwt.sign({ id }, process.env.JWT_SECRET as string, { expiresIn: '20min' })
+    return jwt.sign({ id }, process.env.JWT_SECRET as string, { expiresIn: '10min' })
 }
 
 
