@@ -39,9 +39,10 @@ router.post('/signup', (async (req: RegisterRequest, res: Response) => {
         if (!validator.isEmail(email)) {
             return res.status(400).json({ message: 'Email is not valid' });
         }
-        if (!validator.isStrongPassword(password)) {
-            return res.status(400).json({ message: 'Password not strong enough' });
-        }
+        
+        //if (!validator.isStrongPassword(password)) {
+        //    return res.status(400).json({ message: 'Password not strong enough' });
+        //}
 
         const exists = await prisma.user.findUnique({ where: { email } as any });
         if (exists) {
